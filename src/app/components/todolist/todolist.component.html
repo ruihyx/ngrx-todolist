@@ -1,0 +1,16 @@
+<section class="todolist">
+
+    <header class="header">todo list</header>
+
+    <form [formGroup]="form">
+        <input class="input" formControlName="inputbox" [(ngModel)]="input" placeholder="add todo" (keyup.enter) = "addTodo()"/>
+      </form>
+
+    <ul class="container">
+    <app-todoitem
+      *ngFor="let todo of todolist"
+      [item]="todo"
+      (emitId)="deleteTodo($event)"
+    />
+  </ul>
+  </section>
